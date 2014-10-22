@@ -1,7 +1,23 @@
 <div class="add animate-slide-right" ng-show="add_task_state">
     <form class="add-task">
-        <input type="text" class="form-control" placeholder="What do you need to do?">
-        <textarea type="text" class="form-control" placeholder="Tell me more about it..."></textarea>
+        <input type="text" class="form-control control" placeholder="What do you need to do?">
+
+        <textarea type="text" class="form-control control" placeholder="Tell me more about it..."></textarea>
+
+        <div class="btn-group control" data-toggle="buttons">
+            <label class="btn btn-success active">
+                <input type="radio" name="options" id="option1" checked> Normal
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option2"> Important
+            </label>
+            <label class="btn btn-warning">
+                <input type="radio" name="options" id="option3"> Critical
+            </label>
+            <label class="btn btn-danger">
+                <input type="radio" name="options" id="option3"> Nuclear
+            </label>
+        </div>
     </form>
 
     <div class="buttons">

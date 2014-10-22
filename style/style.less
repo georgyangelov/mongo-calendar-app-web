@@ -165,16 +165,24 @@ day-panel {
             display: flex;
             flex-direction: column;
 
-            .form-control {
+            input {
                 min-height: 40px;
             }
 
-            .form-control + .form-control {
+            .control + .control {
                 margin-top: 10px;
             }
 
             textarea {
                 flex: 1;
+            }
+
+            .btn-group {
+                display: flex;
+
+                > label {
+                    flex: 1;
+                }
             }
         }
     }
