@@ -66,6 +66,10 @@ calendar {
         text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 
         > td {
+            position: relative;
+
+            overflow: hidden;
+
             cursor: pointer;
             transition: color .3s, background-color .3s;
 
@@ -75,6 +79,48 @@ calendar {
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+
+            .task-indicators {
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+
+                width: calc(100% - 20px);
+                height: 8px;
+
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    width: 8px;
+                    height: 8px;
+
+                    float: left;
+
+                    border-radius: 50%;
+
+                    &.normal {
+                        background-color: #449d44;
+                    }
+
+                    &.important {
+                        background-color: #428bca;
+                    }
+
+                    &.critical {
+                        background-color: #d58512;
+                    }
+
+                    &.nuclear {
+                        background-color: #d43f3a;
+                    }
+                }
+
+                li + li {
+                    margin-left: 5px;
+                }
+            }
         }
 
         > td:nth-child(6),
@@ -95,6 +141,10 @@ calendar {
             background-color: #428bca !important;
             border-radius: 3px;
             color: white;
+
+            .task-indicators li {
+                background-color: white !important;
+            }
         }
     }
 
