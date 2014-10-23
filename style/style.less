@@ -10,6 +10,9 @@ body {
     background-color: #e8e8e8;
     display: flex;
     justify-content: center;
+
+    background-image: url('../images/ocean.jpg');
+    background-position: center center;
 }
 
 calendar {
@@ -17,12 +20,30 @@ calendar {
     height: 500px;
     align-self: center;
 
-    background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     box-shadow: 0 20px 100px rgba(0, 0, 0, 0.3);
 
     position: relative;
+    background: inherit;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        -webkit-filter: blur(10px) saturate(2);
+    }
+
+    table {
+        position: relative;
+
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 5px;
+    }
 
     .months {
         background: linear-gradient(to bottom, #a90329 0%, #8f0222 44%, #6d0019 100%);
