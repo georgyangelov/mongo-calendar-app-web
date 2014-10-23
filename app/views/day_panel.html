@@ -1,21 +1,21 @@
 <div class="add animate-slide-right" ng-show="add_task_state">
     <form class="add-task">
-        <input type="text" class="form-control control" placeholder="What do you need to do?">
+        <input name="title" type="text" class="form-control control" placeholder="What do you need to do?">
 
-        <textarea type="text" class="form-control control" placeholder="Tell me more about it..."></textarea>
+        <textarea name="text" type="text" class="form-control control" placeholder="Tell me more about it..."></textarea>
 
         <div class="btn-group control" data-toggle="buttons">
             <label class="btn btn-success active">
-                <input type="radio" name="options" id="option1" checked> Normal
+                <input type="radio" name="priority" value="0" checked> Normal
             </label>
             <label class="btn btn-primary">
-                <input type="radio" name="options" id="option2"> Important
+                <input type="radio" name="priority" value="1"> Important
             </label>
             <label class="btn btn-warning">
-                <input type="radio" name="options" id="option3"> Critical
+                <input type="radio" name="priority" value="2"> Critical
             </label>
             <label class="btn btn-danger">
-                <input type="radio" name="options" id="option3"> Nuclear
+                <input type="radio" name="priority" value="3"> Nuclear
             </label>
         </div>
     </form>
@@ -26,8 +26,15 @@
     </div>
 </div>
 <div class="list animate-slide-left" ng-hide="add_task_state">
-    <div class="message">
+    <div ng-hide="tasks.length > 0" class="message">
         <h1>No tasks for the day! So lazy...</h1>
+    </div>
+
+    <div ng-show="tasks.length > 0" class="tasks list-group">
+        <a ng-repeat="task in tasks" href="#" class="list-group-item task priority-{{task.priority}} border">
+            <h4 class="list-group-item-heading">{{task.title}}</h4>
+            <p class="list-group-item-text">{{task.text}}</p>
+        </a>
     </div>
 
     <div class="buttons">

@@ -120,22 +120,6 @@ calendar {
                     float: left;
 
                     border-radius: 50%;
-
-                    &.normal {
-                        background-color: #449d44;
-                    }
-
-                    &.important {
-                        background-color: #428bca;
-                    }
-
-                    &.critical {
-                        background-color: #d58512;
-                    }
-
-                    &.nuclear {
-                        background-color: #d43f3a;
-                    }
                 }
 
                 li + li {
@@ -273,12 +257,27 @@ day-panel {
             }
         }
 
+        .tasks {
+            flex: 1;
+
+            overflow: auto;
+
+            > .task {
+                border-left-style: solid !important;
+                border-left-width: 5px !important;
+            }
+        }
+
         > .list-group {
             flex: 1;
             margin-bottom: 0;
 
             > .list-group-item {
-                border: none;
+                border-top: none;
+                border-right: none;
+                border-bottom: none;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
             }
         }
     }
@@ -324,5 +323,45 @@ day-panel {
 
     &.ng-hide {
         transform: translateX(100%);
+    }
+}
+
+.priority-0 {
+    &.background {
+        background-color: #449d44;
+    }
+
+    &.border {
+        border-color: #449d44;
+    }
+}
+
+.priority-1 {
+    &.background {
+        background-color: #428bca;
+    }
+
+    &.border {
+        border-color: #428bca;
+    }
+}
+
+.priority-2 {
+    &.background {
+        background-color: #d58512;
+    }
+
+    &.border {
+        border-color: #d58512;
+    }
+}
+
+.priority-3 {
+    &.background {
+        background-color: #d43f3a;
+    }
+
+    &.border {
+        border-color: #d43f3a;
     }
 }
