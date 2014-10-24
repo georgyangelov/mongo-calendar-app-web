@@ -2,18 +2,41 @@ var app = angular.module('calendar');
 
 app.controller('CalendarController', ['$scope', function($scope) {
 
-    var today = moment();
+    if (!$scope.year || !$scope.month) {
+        var today = moment();
 
-    $scope.year  = today.year();
-    $scope.month = today.month();
+        $scope.year  = today.year();
+        $scope.month = today.month();
+    }
+
     $scope.weeks = [];
 
-    generate_weeks();
+    update_month();
 
-    function generate_weeks() {
-        var date  = moment([$scope.year, $scope.month]).startOf('week'),
+    $scope.$watch('year', update_month);
+    $scope.$watch('month', update_month);
+
+    $scope.previous_month = function() {
+        var date = $scope.date.clone().subtract(1, 'months');
+
+        $scope.year = date.year();
+        $scope.month = date.month();
+    };
+
+    $scope.next_month = function() {
+        var date = $scope.date.clone().add(1, 'months');
+
+        $scope.year = date.year();
+        $scope.month = date.month();
+    };
+
+    function update_month() {
+        var date  = moment([$scope.year, $scope.month]),
             weeks = [],
             week  = [];
+
+        $scope.date = date.clone();
+        date = date.startOf('week');
 
         function push_date(other_month) {
             if (week.length == 7) {
