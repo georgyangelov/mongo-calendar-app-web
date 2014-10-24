@@ -5,9 +5,6 @@ app.directive('calendar', [function() {
         scope: {},
 
         controller: 'CalendarController',
-        templateUrl: 'app/views/calendar.html',
-
-        // link: function($scope, element, attributes, controller) {
-        // }
+        templateUrl: 'app/views/calendar.html'
     };
 }]);

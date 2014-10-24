@@ -14,19 +14,18 @@
         <td>Неделя</td>
     </tr>
 
-    <!-- Will be dynamic, I promise! -->
-    <tr class="days"><td class="faded" day-popover="2014-09-29">29</td><td class="faded">30</td><td day-popover="2014-09-29">1</td><td day-popover="2014-09-29">2</td><td day-popover="2014-09-29">3</td><td day-popover="2014-09-29">4</td><td day-popover="2014-09-29">5</td></tr><tr class="days"><td day-popover="2014-09-29">6</td>
+    <tr ng-repeat="week in weeks" class="days">
+        <td ng-repeat="day in week" day-popover="{{day.date.format('YYYY-M-D')}}" ng-class="{faded: day.other, today: day.today}">
+            {{day.number}}
 
-    <td day-popover="2014-09-29">
-        7
-
-        <ul class="task-indicators">
-            <li class="priority-0 background"></li>
-            <li class="priority-1 background"></li>
-            <li class="priority-2 background"></li>
-            <li class="priority-3 background"></li>
-        </ul>
-    </td>
-
-    <td day-popover="2014-09-29">8</td><td day-popover="2014-09-29">9</td><td day-popover="2014-09-29">10</td><td day-popover="2014-09-29">11</td><td day-popover="2014-09-29">12</td></tr><tr class="days"><td day-popover="2014-09-29">13</td><td day-popover="2014-09-29">14</td><td day-popover="2014-09-29">15</td><td day-popover="2014-09-29">16</td><td day-popover="2014-09-29">17</td><td day-popover="2014-09-29">18</td><td day-popover="2014-09-29">19</td></tr><tr class="days"><td day-popover="2014-09-29">20</td><td class="today">21</td><td day-popover="2014-09-29">22</td><td day-popover="2014-09-29">23</td><td day-popover="2014-09-29">24</td><td day-popover="2014-09-29">25</td><td day-popover="2014-09-29">26</td></tr><tr class="days"><td day-popover="2014-09-29">27</td><td day-popover="2014-09-29">28</td><td day-popover="2014-09-29">29</td><td day-popover="2014-09-29">30</td><td>31</td><td class="faded">1</td><td class="faded">2</td></tr>
+            <!--
+                <ul class="task-indicators">
+                    <li class="priority-0 background"></li>
+                    <li class="priority-1 background"></li>
+                    <li class="priority-2 background"></li>
+                    <li class="priority-3 background"></li>
+                </ul>
+            -->
+        </td>
+    </tr>
 </table>
