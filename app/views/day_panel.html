@@ -34,6 +34,12 @@
         <a ng-repeat="task in tasks" href="#" class="list-group-item task priority-{{task.priority}} border">
             <h4 class="list-group-item-heading">{{task.title}}</h4>
             <p class="list-group-item-text">{{task.text}}</p>
+
+            <div class="controls">
+                <button class="mark-as-done btn btn-link"><i class="glyphicon glyphicon-ok"></i></button>
+                <button class="delete btn btn-link"><i class="glyphicon glyphicon-trash"></i></button>
+                <button class="edit btn btn-link"><i class="glyphicon glyphicon-pencil"></i></button>
+            </div>
         </a>
     </div>
 
@@ -41,25 +47,3 @@
         <button class="btn btn-primary new fill-1" ng-click="show_add_task()"><i class="glyphicon glyphicon-plus"></i> New task! Go go go!</button>
     </div>
 </div>
-<!-- <div class="list-group">
-    <a href="#" class="list-group-item active">
-        <h4 class="list-group-item-heading">List group item heading</h4>
-        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    </a>
-
-    <a href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">List group item heading</h4>
-        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    </a>
-
-    <a href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">List group item heading</h4>
-        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    </a>
-
-    <a href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">List group item heading</h4>
-        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    </a>
-</div>
- -->

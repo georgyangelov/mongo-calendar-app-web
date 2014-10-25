@@ -1,3 +1,8 @@
+@green:  #449d44;
+@blue:   #428bca;
+@orange: #d58512;
+@red:    #d43f3a;
+
 html, body {
     height: 100%;
     margin: 0;
@@ -144,7 +149,7 @@ calendar {
         }
 
         > .popover-active {
-            background-color: #428bca !important;
+            background-color: @blue !important;
             border-radius: 3px;
             color: white;
 
@@ -260,25 +265,63 @@ day-panel {
 
         .tasks {
             flex: 1;
+            margin-bottom: 0;
 
             overflow: auto;
 
             > .task {
-                border-left-style: solid !important;
-                border-left-width: 5px !important;
-            }
-        }
+                position: relative;
 
-        > .list-group {
-            flex: 1;
-            margin-bottom: 0;
-
-            > .list-group-item {
                 border-top: none;
                 border-right: none;
                 border-bottom: none;
                 border-bottom-left-radius: 0;
                 border-bottom-right-radius: 0;
+                border-left-style: solid !important;
+                border-left-width: 5px !important;
+
+                padding-right: 25px;
+
+                &:hover {
+                    > .controls {
+                        opacity: 1;
+                    }
+                }
+
+                > .controls {
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    opacity: 0;
+                    transition: opacity .3s;
+
+                    top: 0;
+                    right: 0;
+
+                    height: 100%;
+                    padding: 4px;
+
+                    color: inherit;
+
+                    > button {
+                        padding: 0;
+                        color: inherit;
+                    }
+
+                    > .mark-as-done:hover {
+                        color: @green;
+                    }
+
+                    > .delete:hover {
+                        color: @red;
+                    }
+
+                    > .edit:hover {
+                        color: @orange;
+                    }
+                }
             }
         }
     }
@@ -329,40 +372,40 @@ day-panel {
 
 .priority-0 {
     &.background {
-        background-color: #449d44;
+        background-color: @green;
     }
 
     &.border {
-        border-color: #449d44;
+        border-color: @green;
     }
 }
 
 .priority-1 {
     &.background {
-        background-color: #428bca;
+        background-color: @blue;
     }
 
     &.border {
-        border-color: #428bca;
+        border-color: @blue;
     }
 }
 
 .priority-2 {
     &.background {
-        background-color: #d58512;
+        background-color: @orange;
     }
 
     &.border {
-        border-color: #d58512;
+        border-color: @orange;
     }
 }
 
 .priority-3 {
     &.background {
-        background-color: #d43f3a;
+        background-color: @red;
     }
 
     &.border {
-        border-color: #d43f3a;
+        border-color: @red;
     }
 }
