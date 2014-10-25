@@ -6,12 +6,13 @@ app.directive('dayPopover', ['$compile', function($compile) {
         scope: false,
 
         link: function($scope, element, attributes, controller) {
-            var date     = attributes.dayPopover,
-                $element = $(element);
+            var date      = attributes.dayPopover,
+                placement = attributes.popoverPosition || 'auto',
+                $element  = $(element);
 
             $element.popover({
                 container: 'body',
-                position: 'auto',
+                placement: placement,
 
                 html: true,
                 template:

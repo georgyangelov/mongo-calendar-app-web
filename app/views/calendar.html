@@ -15,7 +15,7 @@
     </tr>
 
     <tr ng-repeat="week in weeks" class="days">
-        <td ng-repeat="day in week" day-popover="{{day.date.format('YYYY-M-D')}}" ng-class="{faded: day.other, today: day.today}">
+        <td ng-repeat="day in week track by $index" day-popover="{{day.date.format('YYYY-M-D')}}" popover-position="{{$index > 3 ? 'left' : 'right'}}" ng-class="{faded: day.other, today: day.today}">
             {{day.number}}
 
             <!--
