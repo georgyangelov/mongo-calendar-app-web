@@ -18,14 +18,9 @@
         <td ng-repeat="day in week track by $index" day-popover="{{day.date.format('YYYY-M-D')}}" popover-position="{{$index > 3 ? 'left' : 'right'}}" ng-class="{faded: day.other, today: day.today}">
             {{day.number}}
 
-            <!--
-                <ul class="task-indicators">
-                    <li class="priority-0 background"></li>
-                    <li class="priority-1 background"></li>
-                    <li class="priority-2 background"></li>
-                    <li class="priority-3 background"></li>
-                </ul>
-            -->
+            <ul class="task-indicators">
+                <li ng-repeat="task in day.tasks" class="priority-{{task.priority}} background"></li>
+            </ul>
         </td>
     </tr>
 </table>

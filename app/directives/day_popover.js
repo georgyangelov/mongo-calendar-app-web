@@ -26,7 +26,7 @@ app.directive('dayPopover', ['$compile', function($compile) {
                 content: function() {
                     $('.popover').popover('hide');
 
-                    return $compile('<day-panel></day-panel>')($scope.$parent);
+                    return $compile('<day-panel date="' + date + '"></day-panel>')($scope.$parent);
                 }
             });
 

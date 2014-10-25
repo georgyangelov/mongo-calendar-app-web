@@ -1,21 +1,21 @@
 <div class="add animate-slide-right" ng-show="add_task_state">
     <form class="add-task">
-        <input name="title" type="text" class="form-control control" placeholder="What do you need to do?">
+        <input ng-model="task.title" type="text" class="form-control control" placeholder="What do you need to do?">
 
-        <textarea name="text" type="text" class="form-control control" placeholder="Tell me more about it..."></textarea>
+        <textarea ng-model="task.text" type="text" class="form-control control" placeholder="Tell me more about it..."></textarea>
 
-        <div class="btn-group control" data-toggle="buttons">
-            <label class="btn btn-success active">
-                <input type="radio" name="priority" value="0" checked> Normal
+        <div class="btn-group control">
+            <label class="btn btn-success" ng-class="{active: task.priority == 0}">
+                <input type="radio" ng-model="task.priority" name="priority" ng-value="0" checked> Normal
             </label>
-            <label class="btn btn-primary">
-                <input type="radio" name="priority" value="1"> Important
+            <label class="btn btn-primary" ng-class="{active: task.priority == 1}">
+                <input type="radio" ng-model="task.priority" name="priority" ng-value="1"> Important
             </label>
-            <label class="btn btn-warning">
-                <input type="radio" name="priority" value="2"> Critical
+            <label class="btn btn-warning" ng-class="{active: task.priority == 2}">
+                <input type="radio" ng-model="task.priority" name="priority" ng-value="2"> Critical
             </label>
-            <label class="btn btn-danger">
-                <input type="radio" name="priority" value="3"> Nuclear
+            <label class="btn btn-danger" ng-class="{active: task.priority == 3}">
+                <input type="radio" ng-model="task.priority" name="priority" ng-value="3"> Nuclear
             </label>
         </div>
     </form>
@@ -32,13 +32,16 @@
 
     <div ng-show="tasks.length > 0" class="tasks list-group">
         <a ng-repeat="task in tasks" href="#" class="list-group-item task priority-{{task.priority}} border">
-            <h4 class="list-group-item-heading">{{task.title}}</h4>
+            <h4 class="list-group-item-heading">
+                <i ng-if="task.completed" class="glyphicon glyphicon-ok"></i>
+                {{task.title}}
+            </h4>
             <p class="list-group-item-text">{{task.text}}</p>
 
             <div class="controls">
-                <button class="mark-as-done btn btn-link"><i class="glyphicon glyphicon-ok"></i></button>
-                <button class="delete btn btn-link" confirm="Are you really sure you don't want to do this task?" ng-click="show_add_task()"><i class="glyphicon glyphicon-trash"></i></button>
-                <button class="edit btn btn-link"><i class="glyphicon glyphicon-pencil"></i></button>
+                <button class="mark-as-done btn btn-link" ng-click="mark_task_as_completed(task)"><i class="glyphicon glyphicon-ok"></i></button>
+                <button class="delete btn btn-link" confirm="Are you really sure you don't want to do this task?" ng-click="delete_task(task)"><i class="glyphicon glyphicon-trash"></i></button>
+                <button ng-click="show_add_task(task)" class="edit btn btn-link"><i class="glyphicon glyphicon-pencil"></i></button>
             </div>
         </a>
     </div>

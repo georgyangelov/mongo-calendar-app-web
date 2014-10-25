@@ -1,6 +1,6 @@
 var app = angular.module('calendar');
 
-app.controller('CalendarController', ['$scope', function($scope) {
+app.controller('CalendarController', ['$scope', 'Task', function($scope, Task) {
 
     if (!$scope.year || !$scope.month) {
         var today = moment();
@@ -50,7 +50,8 @@ app.controller('CalendarController', ['$scope', function($scope) {
                        today.month() == date.month() &&
                        today.date()  == date.date(),
                 number: date.date(),
-                date: date.clone()
+                date:   date.clone(),
+                tasks:  Task.query_for_date({date: date.format('YYYY-MM-DD')})
             });
 
             date.add(1, 'days');

@@ -1,6 +1,6 @@
 var app = angular.module('calendar');
 
-app.directive('calendar', [function() {
+app.directive('calendar', ['Task', function(Task) {
     return {
         scope: {},
 
